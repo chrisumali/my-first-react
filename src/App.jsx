@@ -1,12 +1,21 @@
+/*All imports that starts with 'use' are react hooks
+all react hooks must be called only inside react components or other react hooks*/
+
+import { useState } from 'react';
+
 import  Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import { CORE_CONCEPTS } from './data.js';
 import TabButton from './components/TabButton.jsx';
 
 function App() {
+  //Hook useState called on top level
+  const [selectedTopic, setSelectedTopic ] = useState('Please select a button');
+
   function handleSelect(selectedButton){
     //selectedButton => 'components', 'jsx', 'props', 'state'
-    console.log(selectedButton + ' - Selected');
+    setSelectedTopic(selectedButton);
+    console.log(selectedTopic);
   }
 
   return (
@@ -30,7 +39,7 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          Dynamic Content
+          {selectedTopic}
         </section>
       </main>
     </div>
@@ -38,3 +47,9 @@ function App() {
 }
 
 export default App;
+
+/*
+* Rules of hooks:
+* Only call hooks inside of component functions
+* Only call hooks on the top level
+*/
