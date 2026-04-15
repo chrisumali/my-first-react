@@ -1,6 +1,7 @@
 import { EXAMPLES } from "../data";
 import TabButton from "./TabButton";
 import { useState } from "react";
+import Section from "./Section";
 
 export default function Examples() {
   //Hook useState called on top level
@@ -13,30 +14,30 @@ export default function Examples() {
   }
 
   return (
-    <section id="examples">
+    <Section id="examples">
       <h2>Example</h2>
       <menu>
         <TabButton
           isSelected={selectedTopic == "components"}
-          onSelect={() => handleSelect("components")}
+          onClick={() => handleSelect("components")}
         >
           Component
         </TabButton>
         <TabButton
           isSelected={selectedTopic == "jsx"}
-          onSelect={() => handleSelect("jsx")}
+          onClick={() => handleSelect("jsx")}
         >
           JSX
         </TabButton>
         <TabButton
           isSelected={selectedTopic == "props"}
-          onSelect={() => handleSelect("props")}
+          onClick={() => handleSelect("props")}
         >
           Props
         </TabButton>
         <TabButton
           isSelected={selectedTopic == "state"}
-          onSelect={() => handleSelect("state")}
+          onClick={() => handleSelect("state")}
         >
           State
         </TabButton>
@@ -52,6 +53,6 @@ export default function Examples() {
           </pre>
         </div>
       )}
-    </section>
+    </Section>
   );
 }
